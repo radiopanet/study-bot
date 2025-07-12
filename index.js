@@ -79,7 +79,6 @@ app.post('/whatsapp', async (req, res) => {
   const incomingMsg = req.body.Body.trim();
   const userMsg = incomingMsg.toLowerCase();
 
-  console.log(userMsg);
   let response = '👋 Welcome to StudyBot!\nType `menu` to get started.';
 
   if (['menu', 'start', 'papers', '0'].includes(userMsg)) {
@@ -97,8 +96,6 @@ app.post('/whatsapp', async (req, res) => {
       <Message>${escapeXML(response)}</Message>
     </Response>
   `);
-
-  console.log(response);
 });
 
 app.listen(PORT, () => {

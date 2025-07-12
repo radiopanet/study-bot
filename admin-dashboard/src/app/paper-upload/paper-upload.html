@@ -1,0 +1,31 @@
+<mat-card class="max-w-xl mx-auto mt-10 p-4">
+  <h2 class="text-lg font-bold mb-4">📄 Upload New Paper</h2>
+
+  <mat-form-field appearance="fill" class="w-full mb-4">
+    <mat-label>Subject</mat-label>
+    <mat-select [(ngModel)]="form.subject_id">
+      <mat-option *ngFor="let s of subjects" [value]="s.id">
+        {{ s.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full mb-4">
+    <mat-label>Paper Name</mat-label>
+    <input matInput [(ngModel)]="form.name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full mb-4">
+    <mat-label>Paper Link</mat-label>
+    <input matInput [(ngModel)]="form.link" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full mb-4">
+    <mat-label>Grade</mat-label>
+    <input matInput type="number" [(ngModel)]="form.grade" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="submit()">Upload</button>
+
+  <p class="mt-4">{{ status }}</p>
+</mat-card>
